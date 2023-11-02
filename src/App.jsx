@@ -1,46 +1,38 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import './App.css'
-import { useDispatch } from 'react-redux';
-import authService from "./appwrite/auth";
-import { useEffect } from 'react';
-import { login, logout } from './store/authSlice';
-import { Footer, Header } from './components';
-import { Outlet } from 'react-router-dom';
+import authService from "./appwrite/auth"
+import {login, logout} from "./store/authSlice"
+import { Footer, Header } from './components'
+import { Outlet } from 'react-router-dom'
 
 function App() {
-  const [loading, setLoading] = useState(false);
-  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true)
+  const dispatch = useDispatch()
 
-
-  useEffect(()=>{
+  useEffect(() => {
     authService.getCurrentUser()
-    .then((userData)=>{
+    .then((userData) => {
       if (userData) {
         dispatch(login({userData}))
-      }else{
+      } else {
         dispatch(logout())
       }
     })
-    .finally(()=> setLoading(false))
-  },[dispatch])
-
-  // if (loading) {
-  //   return <div>Loading...</div>
-  // }
-
-  return !loading ?(
-    <>
-     <div className='min-h-screen flex flex-wrap content-between bg-slate-400'>
-      <div className="w-full block">
-        <Header/>
+    .finally(() => setLoading(false))
+  }, [dispatch])
+  
+  return !loading ? (
+    <div className='min-h-screen flex flex-wrap content-between bg-gray-400'>
+      <div className='w-full block'>
+        <Header />
         <main>
-          <Outlet/>
+        TODO:  <Outlet />
         </main>
-        <Footer/>
+        <Footer />
       </div>
-    </div> 
-    </>
-  ):null
+    </div>
+  ) : null
 }
 
 export default App

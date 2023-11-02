@@ -1,10 +1,11 @@
 
-const Logo = ({width = "100px"}) => {
+const Logo = () => {
   return (
     <>
     <img />
     </>
   )
 }
+
 
 export default Logo
