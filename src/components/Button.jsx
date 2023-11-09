@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 export default function Button({
     children,
-    type = "button",
+    // type = "button",
     bgColor = "bg-blue-600",
     textColor = "text-white",
     className = "",

@@ -1,5 +1,6 @@
 import {useId} from 'react'
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
+
 function Select({
     options,
     label,
@@ -26,11 +27,11 @@ function Select({
   )
 }
 
-Select.propTypes = {
-    label: PropTypes.string,
-    className: PropTypes.string,
-    options: PropTypes.arrayOf(PropTypes.string),
-  };
+// Select.propTypes = {
+//     label: PropTypes.string,
+//     className: PropTypes.string,
+//     options: PropTypes.arrayOf(PropTypes.string),
+//   };
   
 
 export default React.forwardRef(Select)
