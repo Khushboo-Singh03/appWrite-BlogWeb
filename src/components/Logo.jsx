@@ -1,11 +1,9 @@
 
-const Logo = () => {
+
+function Logo({width = '100px'}) {
   return (
-    <>
-    <img />
-    </>
+    <div>Logo</div>
   )
 }
-
 
 export default Logo
